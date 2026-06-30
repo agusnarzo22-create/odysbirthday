@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Play, Pause, SkipForward, SkipBack, Volume2, Plus, Music, Trash2, Heart, Disc } from 'lucide-react';
 import { addSong, getAllSongs, deleteSong } from '../utils/db';
+import { getAssetUrl } from '../utils/assets';
 
 const DEFAULT_SONGS = [
   {
@@ -252,7 +253,7 @@ const SpotifyPlayer = () => {
           {/* Audio HTML element */}
           <audio
             ref={audioRef}
-            src={currentSong.url}
+            src={getAssetUrl(currentSong.url)}
             onTimeUpdate={handleTimeUpdate}
             onLoadedMetadata={handleLoadedMetadata}
             onEnded={skipForward}
@@ -262,7 +263,7 @@ const SpotifyPlayer = () => {
           <div className="spotify-main-panel">
             <div className={`album-art-container ${isPlaying ? 'playing' : ''}`}>
               <img
-                src={currentSong.coverUrl}
+                src={getAssetUrl(currentSong.coverUrl)}
                 alt={currentSong.title}
                 className="album-art"
               />

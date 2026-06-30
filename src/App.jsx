@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import Wishes from './components/Wishes';
 import SpotifyPlayer from './components/SpotifyPlayer';
 import MemoryGallery from './components/MemoryGallery';
+import { getAssetUrl } from './utils/assets';
 
 const SECTIONS = [
   { id: 'hero', label: 'Home' },
@@ -24,7 +25,7 @@ function App() {
 
   // Initialize Ambient Audio object
   useEffect(() => {
-    const audio = new Audio(AMBIENT_MUSIC_URL);
+    const audio = new Audio(getAssetUrl(AMBIENT_MUSIC_URL));
     audio.loop = true;
     audio.volume = 0.5; // half volume to be subtle
     ambientAudioRef.current = audio;

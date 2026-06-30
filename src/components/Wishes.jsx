@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Heart, Smile, Flame, ThumbsUp, Send } from 'lucide-react';
+import { getAssetUrl } from '../utils/assets';
 
 const Wishes = () => {
   // Pre-configured list of 5 wishes with beautiful placeholders and mock avatars
@@ -85,7 +86,7 @@ const Wishes = () => {
                 {/* Left: Friend Avatar */}
                 <div className="chat-avatar-container">
                   <img
-                    src={wish.avatarUrl}
+                    src={getAssetUrl(wish.avatarUrl)}
                     alt={wish.sender}
                     className="chat-avatar"
                     onError={(e) => {

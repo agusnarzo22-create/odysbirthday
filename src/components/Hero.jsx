@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Mic, MicOff, Volume2, VolumeX, Sparkles, Heart } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import { getAssetUrl } from '../utils/assets';
 
 const Hero = ({ onCandleBlown, ambientAudioPlaying, toggleAmbientAudio }) => {
   const [isBlown, setIsBlown] = useState(false);
@@ -288,7 +289,7 @@ const Hero = ({ onCandleBlown, ambientAudioPlaying, toggleAmbientAudio }) => {
             }}
           >
             <video
-              src="/videos/KueUlangTahun.mp4"
+              src={getAssetUrl('/videos/KueUlangTahun.mp4')}
               autoPlay
               loop
               muted

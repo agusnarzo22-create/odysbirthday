@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Plus, X, Trash2, Heart, Calendar, User } from 'lucide-react';
 import { addMemory, getAllMemories, deleteMemory } from '../utils/db';
+import { getAssetUrl } from '../utils/assets';
 
 const DEFAULT_MEMORIES = [
   {
@@ -255,7 +256,7 @@ const MemoryGallery = () => {
               className="gallery-item"
               onClick={() => setSelectedPhoto({ ...m, index })}
             >
-              <img src={m.imageUrl} alt={m.caption} className="gallery-img" />
+              <img src={getAssetUrl(m.imageUrl)} alt={m.caption} className="gallery-img" />
 
               <div className="gallery-overlay">
                 <p className="gallery-caption-overlay">{m.caption}</p>
@@ -296,7 +297,7 @@ const MemoryGallery = () => {
 
             <div className="lightbox-content" onClick={(e) => e.stopPropagation()}>
               <div className="lightbox-img-wrapper">
-                <img src={selectedPhoto.imageUrl} alt={selectedPhoto.caption} className="lightbox-img" />
+                <img src={getAssetUrl(selectedPhoto.imageUrl)} alt={selectedPhoto.caption} className="lightbox-img" />
               </div>
 
               <div className="lightbox-details">
